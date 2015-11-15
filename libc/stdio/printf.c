@@ -44,8 +44,33 @@ int printf(const char* restrict format, ...)
 			format = format_begun_at;
 			goto print_c;
 		}
+		if ( *format == 'X') {
+			format++;
+			char result[10]="0x00000000";
+			long num = va_arg(parameters, long);
+			int index = 10;
+			while(num != 0) {
+				int curr = num % 16;
+				//ASCII value of '0' is 48
+				int toAdd = 48;
 
-		if ( *format == 'c' )
+				//if we have a number greater than 9, then it'll be A-E
+				//this means we want to base the difference off of 65, the 
+				//ASCII value of A.
+				if (curr > 9) {
+					toAdd = 65;
+					curr = curr - 10;
+				}
+
+				toAdd = toAdd + curr;
+				//we add this to our result array.
+				result[--index] = (char) toAdd;
+				num = num / 16;
+			}
+			print(&result, 10);
+
+		}
+		else if ( *format == 'c' )
 		{
 			format++;
 			char c = (char) va_arg(parameters, int /* char promotes to int */);
