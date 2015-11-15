@@ -222,3 +222,7 @@ common_isr_handler:
 	add esp, 8
 	iret
 
+.global _test_isr
+_test_isr:
+    int 1
+

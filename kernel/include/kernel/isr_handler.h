@@ -34,4 +34,6 @@ extern void _isr29(void);
 extern void _isr30(void);
 extern void _isr31(void);
 
+void idt_isr_handler_install(struct IDTEntry *table);
+
 #endif
