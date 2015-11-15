@@ -31,6 +31,7 @@ void terminal_setcolor(uint8_t color)
 	terminal_color = color;
 }
 
+
 void terminal_putentryat(char c, uint8_t color, size_t x, size_t y)
 {
 	const size_t index = y * VGA_WIDTH + x;
@@ -39,7 +40,18 @@ void terminal_putentryat(char c, uint8_t color, size_t x, size_t y)
 
 void terminal_putchar(char c)
 {
-	terminal_putentryat(c, terminal_color, terminal_column, terminal_row);
+	//we don't want to print invisible characters to the screen
+	char toPut = c;
+	if( c == '\n') {
+		toPut = ' ';
+	}
+
+	terminal_putentryat(toPut, terminal_color, terminal_column, terminal_row);
+
+	//we do want to process invisible characters though.
+	if ( c == '\n') {
+		terminal_column = VGA_WIDTH-1;
+	}
 	if ( ++terminal_column == VGA_WIDTH )
 	{
 		terminal_column = 0;

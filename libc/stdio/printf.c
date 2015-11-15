@@ -67,7 +67,7 @@ int printf(const char* restrict format, ...)
 				result[--index] = (char) toAdd;
 				num = num / 16;
 			}
-			print(&result, 10);
+			print((const char *) &result, 10);
 
 		}
 		else if ( *format == 'c' )
