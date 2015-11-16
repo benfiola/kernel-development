@@ -46,6 +46,11 @@ char *exception_messages[] = {
 	"Reserved Exception",						//31
 };
 
+void _handle_fault(struct Registers* regs) {
+	printf("%s\n", exception_messages[regs->interrupt_number]);
+}
+
+
 void idt_isr_handler_install(struct IDTEntry *idt_table) {
 	addIDTEntry(&idt_table[0], (uint32_t) _isr0, 0x08, 0x08);
 	addIDTEntry(&idt_table[1], (uint32_t) _isr1, 0x08, 0x08);
@@ -79,8 +84,4 @@ void idt_isr_handler_install(struct IDTEntry *idt_table) {
 	addIDTEntry(&idt_table[29], (uint32_t) _isr29, 0x08, 0x08);
 	addIDTEntry(&idt_table[30], (uint32_t) _isr30, 0x08, 0x08);
 	addIDTEntry(&idt_table[31], (uint32_t) _isr31, 0x08, 0x08);
-}
-
-void _handle_fault(struct Registers* regs) {
-	printf(exception_messages[regs->interrupt_number]);
 }

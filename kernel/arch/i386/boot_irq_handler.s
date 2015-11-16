@@ -18,6 +18,7 @@
 .global _irq14
 .global _irq15
 
+.section .text
 _irq0:
 	cli
 	push 0x0000
@@ -127,4 +128,4 @@ common_irq_handler:
 
 .global _test_irq
 _test_irq:
-	int 33
+	int 0x21

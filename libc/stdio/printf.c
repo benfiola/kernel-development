@@ -6,7 +6,20 @@
 static void print(const char* data, size_t data_length)
 {
 	for ( size_t i = 0; i < data_length; i++ )
+	{
 		putchar((int) ((const unsigned char*) data)[i]);
+	}
+}
+
+int _print_addr(unsigned long address) {
+	printf("%X\n", address);
+}
+
+//helper function exposed to assembly i can use to print debugs
+int _printf(const char* restrict format, ...) {
+	va_list parameters;
+	va_start(parameters, format);
+	printf(format, parameters);
 }
 
 int printf(const char* restrict format, ...)
@@ -46,10 +59,24 @@ int printf(const char* restrict format, ...)
 		}
 		if ( *format == 'X') {
 			format++;
-			char result[10]="0x00000000";
-			long num = va_arg(parameters, long);
-			int index = 10;
-			while(num != 0) {
+			//get our number
+			unsigned long num = va_arg(parameters, unsigned long);
+			long temp = num;
+			int size = 0;
+			while(temp != 0) {
+				temp = temp / 16;
+				size++;
+			}
+
+			//we want our string to be 0x<number>\0
+			size=size+3;
+
+			//create our result string
+			char* result;
+			memcpy(result, 0, size);
+			//we start at the second to last index
+			int index = size-2;
+			while(index >= 2) {
 				int curr = num % 16;
 				//ASCII value of '0' is 48
 				int toAdd = 48;
@@ -64,11 +91,46 @@ int printf(const char* restrict format, ...)
 
 				toAdd = toAdd + curr;
 				//we add this to our result array.
-				result[--index] = (char) toAdd;
+				result[index--] = (char) toAdd;
 				num = num / 16;
 			}
-			print((const char *) &result, 10);
+			result[0] = '0';
+			result[1] = 'x';
+			result[size-1] = '\0';
+			print(result, strlen(result));
+		}
+		else if ( *format == 'i' ) {
+			format++;
+			//get our number
+			long num = va_arg(parameters, long);
+			long temp = num;
+			int size = 0;
 
+			while(temp != 0) {
+				temp = temp / 10;
+				size++;
+			}
+
+			//we want our string to be number\0
+			size=size+1;
+
+			//create our result string
+			char* result;
+			memcpy(result, 0, size);
+
+			//we start at the second to last index
+			int index = size-2;
+			while(index >= 0) {
+				int curr = num % 10;
+				//ASCII value of '0' is 48
+				int toAdd = 48;
+				toAdd = toAdd + curr;
+				//we add this to our result array.
+				result[index--] = (char) toAdd;
+				num = num / 10;
+			}
+			result[size-1] = '\0';
+			print(result, strlen(result));
 		}
 		else if ( *format == 'c' )
 		{

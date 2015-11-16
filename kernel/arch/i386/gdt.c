@@ -14,7 +14,7 @@ struct GDTEntry {
 struct GDTR {
 	uint16_t limit;
 	uint32_t base;
-} __attribute__((packed));
+}__attribute__((packed));
 
 struct GDTEntry gdt_table[3];
 struct GDTR _gdtr;

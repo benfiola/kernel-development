@@ -17,8 +17,6 @@ SECTIONS
 	{
 		*(.multiboot)
 		*(.text)
-		*(.gdt)
-		*(.ldt)
 	}
 
 	/* Read-only data. */

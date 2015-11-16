@@ -63,6 +63,7 @@ void idt_irq_handler_install(struct IDTEntry *idt_table) {
 	addIDTEntry(&idt_table[46], (uint32_t) _irq14, 0x08, 0x08);
 	addIDTEntry(&idt_table[47], (uint32_t) _irq15, 0x08, 0x08);
 }
+
 void _handle_request(struct Registers* regs) {
-	printf(request_messages[regs->interrupt_number]);
+	printf("%s\n", request_messages[regs->interrupt_number]);
 }

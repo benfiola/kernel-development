@@ -34,6 +34,7 @@
 .global _isr30
 .global _isr31
 
+.section .text
 # we push either 0 if the interrupt doesn't generate an error code or nothing if the error already pushed an error code
 # then we push the interrupt number and then call our general isr_handler.
 _isr0:
@@ -197,6 +198,7 @@ _isr31:
 # then we push all the segment registers
 # this in essence builds the Registers struct in the isr_handler, thereby passing all this state as an object
 # to our _handle_fault function
+.section .text
 .extern _handle_fault
 common_isr_handler:
 	pusha
@@ -211,7 +213,7 @@ common_isr_handler:
 	mov gs, ax
 	mov eax, esp
 	push eax
-	mov eax, _handle_fault
+	mov eax, offset _handle_fault
 	call eax
 	pop eax
 	pop gs
@@ -222,7 +224,14 @@ common_isr_handler:
 	add esp, 8
 	iret
 
+
+.section .text
 .global _test_isr
+.extern _print_addr
 _test_isr:
+    int 0
     int 1
+    int 2
+    int 3
+    int 4
 

@@ -7,6 +7,7 @@
 extern "C" {
 #endif
 
+int _printf(const char* restrict format, ...);
 int printf(const char* __restrict, ...);
 int putchar(int);
 int puts(const char*);
