@@ -227,11 +227,11 @@ common_isr_handler:
 
 .section .text
 .global _test_isr
-.extern _print_addr
 _test_isr:
     int 0
     int 1
     int 2
     int 3
     int 4
+    ret
 

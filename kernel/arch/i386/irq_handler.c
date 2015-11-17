@@ -3,6 +3,7 @@
 #include <kernel/idt.h>
 #include <kernel/irq_handler.h>
 #include <stdio.h>
+#include <kernel/pic.h>
 
 struct Registers
 {
@@ -31,21 +32,8 @@ char *request_messages[] = {
 	"IRQ 15"							//15
 };
 
-void irq_remap(void){
-	outportb(0x20, 0x11);
-    outportb(0xA0, 0x11);
-    outportb(0x21, 0x20);
-    outportb(0xA1, 0x28);
-    outportb(0x21, 0x04);
-    outportb(0xA1, 0x02);
-    outportb(0x21, 0x01);
-    outportb(0xA1, 0x01);
-    outportb(0x21, 0x0);
-    outportb(0xA1, 0x0);
-}
-
 void idt_irq_handler_install(struct IDTEntry *idt_table) {
-	irq_remap();
+	PIC_remap(0x20, 0x28);
 	addIDTEntry(&idt_table[32], (uint32_t) _irq0, 0x08, 0x08);
 	addIDTEntry(&idt_table[33], (uint32_t) _irq1, 0x08, 0x08);
 	addIDTEntry(&idt_table[34], (uint32_t) _irq2, 0x08, 0x08);
@@ -66,4 +54,5 @@ void idt_irq_handler_install(struct IDTEntry *idt_table) {
 
 void _handle_request(struct Registers* regs) {
 	printf("%s\n", request_messages[regs->interrupt_number]);
+	PIC_eoi(regs->interrupt_number);
 }

@@ -115,7 +115,7 @@ common_irq_handler:
 	mov gs, ax
 	mov eax, esp
 	push eax
-	mov eax, _handle_request
+	mov eax, offset _handle_request
 	call eax
 	pop eax
 	pop gs
@@ -128,4 +128,8 @@ common_irq_handler:
 
 .global _test_irq
 _test_irq:
+	int 0x20
 	int 0x21
+	int 0x22
+	int 0x23
+	ret
