@@ -2,27 +2,43 @@
 #include <system.h>
 
 void PIC_sendMasterData(unsigned char data){
-	outportb(PIC_MASTER_WRITE, data);
+	outportb(PIC_MASTER_DATA, data);
 }
 
 unsigned char PIC_readMasterData() {
-	return inportb(PIC_MASTER_READ);
+	return inportb(PIC_MASTER_DATA);
 }
 
 void PIC_sendSlaveData(unsigned char data) {
-	outportb(PIC_SLAVE_WRITE, data);
+	outportb(PIC_SLAVE_DATA, data);
 }
 
 unsigned char PIC_readSlaveData() {
-	return inportb(PIC_SLAVE_READ);
+	return inportb(PIC_SLAVE_DATA);
+}
+
+void PIC_sendMasterCommand(unsigned char data){
+	outportb(PIC_MASTER_COMMAND, data);
+}
+
+unsigned char PIC_readMasterCommand() {
+	return inportb(PIC_MASTER_COMMAND);
+}
+
+void PIC_sendSlaveCommand(unsigned char data) {
+	outportb(PIC_SLAVE_COMMAND, data);
+}
+
+unsigned char PIC_readSlaveCommand() {
+	return inportb(PIC_SLAVE_COMMAND);
 }
 
 void PIC_remap(unsigned char offset1, unsigned char offset2) {
 	unsigned char master_mask = PIC_readMasterData();
 	unsigned char slave_mask = PIC_readSlaveData();
 
-	PIC_sendMasterData(PIC_INIT);
-	PIC_sendSlaveData(PIC_INIT);
+	PIC_sendMasterCommand(PIC_INIT);
+	PIC_sendSlaveCommand(PIC_INIT);
 	PIC_sendMasterData(offset1);
 	PIC_sendSlaveData(offset2);
 	PIC_sendMasterData(0x04); // tell master that the slave is at IRQ2 - 00000100 (each IRQ port is a bit in this number)
@@ -35,7 +51,7 @@ void PIC_remap(unsigned char offset1, unsigned char offset2) {
 
 void PIC_eoi(int irq) {
 	if(irq >= 8) {
-		PIC_sendSlaveData(PIC_EOI);
+		PIC_sendSlaveCommand(PIC_EOI);
 	}
-	PIC_sendMasterData(PIC_EOI);
+	PIC_sendMasterCommand(PIC_EOI);
 }

@@ -5,12 +5,23 @@
 #include <stdio.h>
 #include <kernel/pic.h>
 
-struct Registers
-{
-    unsigned int gs, fs, es, ds;      /* pushed the segs last */
-    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;  /* pushed by 'pusha' */
-    unsigned int interrupt_number, error_code;    /* our 'push byte #' and ecodes do this */
-    unsigned int eip, cs, eflags, useresp, ss;   /* pushed by the processor automatically */ 
+void* idt_custom_handlers[16] = {
+	0,							//0
+	0,							//1
+	0,							//2
+	0,							//3
+	0,							//4
+	0,							//5
+	0,							//6
+	0,							//7
+	0,							//8
+	0,							//9
+	0,							//10
+	0,							//11
+	0,							//12
+	0,							//13
+	0,							//14
+	0							//15
 };
 
 char *request_messages[] = {
@@ -52,7 +63,22 @@ void idt_irq_handler_install(struct IDTEntry *idt_table) {
 	addIDTEntry(&idt_table[47], (uint32_t) _irq15, 0x08, 0x08);
 }
 
+void irq_install_custom_handler(int irq, void (*custom_handler)(struct Registers *regs)) {
+	idt_custom_handlers[irq] = custom_handler;
+}
+
+void irq_uninstall_custom_handler(int irq) {
+	idt_custom_handlers[irq] = 0;
+}
+
 void _handle_request(struct Registers* regs) {
-	printf("%s\n", request_messages[regs->interrupt_number]);
-	PIC_eoi(regs->interrupt_number);
+	void (*custom_handler)(struct Registers *regs);
+	int irq_number = regs->interrupt_number - 32;
+	custom_handler = idt_custom_handlers[irq_number];
+	if(custom_handler) {
+		custom_handler(regs);
+	} else {
+		printf("%s\n", request_messages[irq_number]);
+	}
+	PIC_eoi(irq_number);
 }

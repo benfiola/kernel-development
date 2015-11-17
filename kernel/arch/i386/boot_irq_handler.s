@@ -22,82 +22,82 @@
 _irq0:
 	cli
 	push 0x0000
-	push 0x0000
+	push 0x0020
 	jmp common_irq_handler
 _irq1:
 	cli
 	push 0x0000
-	push 0x0001
+	push 0x0021
 	jmp common_irq_handler
 _irq2:
 	cli
 	push 0x0000
-	push 0x0002
+	push 0x0022
 	jmp common_irq_handler
 _irq3:
 	cli
 	push 0x0000
-	push 0x0003
+	push 0x0023
 	jmp common_irq_handler
 _irq4:
 	cli
 	push 0x0000
-	push 0x0004
+	push 0x0024
 	jmp common_irq_handler
 _irq5:
 	cli
 	push 0x0000
-	push 0x0005
+	push 0x0025
 	jmp common_irq_handler
 _irq6:
 	cli
 	push 0x0000
-	push 0x0006
+	push 0x0026
 	jmp common_irq_handler
 _irq7:
 	cli
 	push 0x0000
-	push 0x0007
+	push 0x0027
 	jmp common_irq_handler
 _irq8:
 	cli
 	push 0x0000
-	push 0x0008
+	push 0x0028
 	jmp common_irq_handler
 _irq9:
 	cli
 	push 0x0000
-	push 0x0009
+	push 0x0029
 	jmp common_irq_handler
 _irq10:
 	cli
 	push 0x0000
-	push 0x000A
+	push 0x002A
 	jmp common_irq_handler
 _irq11:
 	cli
 	push 0x0000
-	push 0x000B
+	push 0x002B
 	jmp common_irq_handler
 _irq12:
 	cli
 	push 0x0000
-	push 0x000C
+	push 0x002C
 	jmp common_irq_handler
 _irq13:
 	cli
 	push 0x0000
-	push 0x000D
+	push 0x002D
 	jmp common_irq_handler
 _irq14:
 	cli
 	push 0x0000
-	push 0x000E
+	push 0x002E
 	jmp common_irq_handler
 _irq15:
 	cli
 	push 0x0000
-	push 0x000F
+	push 0x002F
 	jmp common_irq_handler
 
 #we call the external _handle_request function for our irqs.
@@ -128,8 +128,5 @@ common_irq_handler:
 
 .global _test_irq
 _test_irq:
-	int 0x20
 	int 0x21
-	int 0x22
-	int 0x23
 	ret
