@@ -1,4 +1,4 @@
-#include <kernel/pic.h>
+#include <kernel/drivers/pic.h>
 #include <system.h>
 
 void PIC_sendMasterData(unsigned char data){

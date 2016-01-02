@@ -1,5 +1,5 @@
 #include <stdint.h>
-#include <kernel/gdt.h>
+#include <kernel/data_tables/gdt.h>
 
 struct GDTEntry {
 	uint16_t limit_low;

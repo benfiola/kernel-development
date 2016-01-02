@@ -3,11 +3,11 @@
 #include <string.h>
 #include <stdio.h>
 
-#include <kernel/tty.h>
-#include <kernel/gdt.h>
-#include <kernel/idt.h>
-#include <kernel/keyboard.h>
-#include <kernel/pic.h>
+#include <kernel/drivers/tty.h>
+#include <kernel/data_tables/gdt.h>
+#include <kernel/data_tables/idt.h>
+#include <kernel/drivers/keyboard.h>
+#include <kernel/drivers/pic.h>
 
 extern void _test_irq();
 extern void _test_isr();

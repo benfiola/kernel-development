@@ -1,9 +1,9 @@
 #include <system.h>
 #include <stdint.h>
-#include <kernel/idt.h>
-#include <kernel/irq_handler.h>
+#include <kernel/data_tables/idt.h>
+#include <kernel/irq/irq_handler.h>
 #include <stdio.h>
-#include <kernel/pic.h>
+#include <kernel/drivers/pic.h>
 
 void* idt_custom_handlers[16] = {
 	0,							//0

@@ -1,7 +1,7 @@
 #include <system.h>
-#include <kernel/pic.h>
-#include <kernel/irq_handler.h>
-#include <kernel/keyboard.h>
+#include <kernel/drivers/pic.h>
+#include <kernel/irq/irq_handler.h>
+#include <kernel/drivers/keyboard.h>
 #include <stdio.h>
 #include <stdbool.h>
 

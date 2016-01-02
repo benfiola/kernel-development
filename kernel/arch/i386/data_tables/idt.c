@@ -1,7 +1,7 @@
 #include <stdint.h>
-#include <kernel/idt.h>
-#include <kernel/isr_handler.h>
-#include <kernel/irq_handler.h>
+#include <kernel/data_tables/idt.h>
+#include <kernel/isr/isr_handler.h>
+#include <kernel/irq/irq_handler.h>
 #include <stdio.h>
 
 struct IDTR {
