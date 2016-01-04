@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named libc
+
+# Build rule for target.
+libc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 libc
+.PHONY : libc
+
+# fast build rule for target.
+libc/fast:
+	$(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/build
+.PHONY : libc/fast
+
+#=============================================================================
 # Target rules for targets named kernel
 
 # Build rule for target.
@@ -131,6 +144,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... libc"
 	@echo "... kernel"
 .PHONY : help
 
