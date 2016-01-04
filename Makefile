@@ -80,14 +80,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/benfiola/Documents/os_workspace && $(CMAKE_COMMAND) -E cmake_progress_start /home/benfiola/Documents/os_workspace/CMakeFiles /home/benfiola/Documents/os_workspace/libc/CMakeFiles/progress.marks
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 libc/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/benfiola/Documents/os_workspace/CMakeFiles /home/benfiola/Documents/os_workspace/CMakeFiles/progress.marks
+	$(MAKE) -f CMakeFiles/Makefile2 all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/benfiola/Documents/os_workspace/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 libc/clean
+	$(MAKE) -f CMakeFiles/Makefile2 clean
 .PHONY : clean
 
 # The main clean target
@@ -97,18 +97,31 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 libc/preinstall
+	$(MAKE) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 libc/preinstall
+	$(MAKE) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/benfiola/Documents/os_workspace && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named kernel
+
+# Build rule for target.
+kernel: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 kernel
+.PHONY : kernel
+
+# fast build rule for target.
+kernel/fast:
+	$(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/build
+.PHONY : kernel/fast
 
 # Help Target
 help:
@@ -118,6 +131,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... kernel"
 .PHONY : help
 
 
@@ -129,6 +143,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/benfiola/Documents/os_workspace && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

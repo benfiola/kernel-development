@@ -1,6 +1,11 @@
 
 MESSAGE(STATUS "Building kernel")
 
+set(KERNEL_C_FLAGS "-ffreestanding -fbuiltin -Wall -Wextra")
+set(KERNEL_CPP_FLAGS "-D__is_myos_kernel -Iinclude")
+set(KERNEL_LD_FLAGS "")
+set(KERNEL_LIBS "-nostdlib -lk -gcc")
+
 LOAD_PROFILE("i386")
 
 MESSAGE(STATUS "Finding all generic sources")
