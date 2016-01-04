@@ -1,0 +1,4 @@
+MESSAGE(STATUS "Building libc")
+
+LOAD_PROFILE("i386")
+
