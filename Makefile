@@ -280,6 +280,19 @@ crtn/fast:
 .PHONY : crtn/fast
 
 #=============================================================================
+# Target rules for targets named kernel
+
+# Build rule for target.
+kernel: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 kernel
+.PHONY : kernel
+
+# fast build rule for target.
+kernel/fast:
+	$(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/build
+.PHONY : kernel/fast
+
+#=============================================================================
 # Target rules for targets named myos.kernel
 
 # Build rule for target.
@@ -312,6 +325,7 @@ help:
 	@echo "... clibs"
 	@echo "... libc"
 	@echo "... myos.kernel"
+	@echo "... kernel"
 	@echo "... crtn"
 	@echo "... crti"
 .PHONY : help

@@ -141,6 +141,21 @@ crtn/fast:
 .PHONY : crtn/fast
 
 # Convenience name for target.
+kernel/CMakeFiles/kernel.dir/rule:
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 kernel/CMakeFiles/kernel.dir/rule
+.PHONY : kernel/CMakeFiles/kernel.dir/rule
+
+# Convenience name for target.
+kernel: kernel/CMakeFiles/kernel.dir/rule
+
+.PHONY : kernel
+
+# fast build rule for target.
+kernel/fast:
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/build
+.PHONY : kernel/fast
+
+# Convenience name for target.
 kernel/CMakeFiles/myos.kernel.dir/rule:
 	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 kernel/CMakeFiles/myos.kernel.dir/rule
 .PHONY : kernel/CMakeFiles/myos.kernel.dir/rule
@@ -413,7 +428,7 @@ kernel/kernel.o: kernel/kernel.c.o
 
 # target to build an object file
 kernel/kernel.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/kernel/kernel.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/kernel/kernel.c.o
 .PHONY : kernel/kernel.c.o
 
 kernel/kernel.i: kernel/kernel.c.i
@@ -422,7 +437,7 @@ kernel/kernel.i: kernel/kernel.c.i
 
 # target to preprocess a source file
 kernel/kernel.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/kernel/kernel.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/kernel/kernel.c.i
 .PHONY : kernel/kernel.c.i
 
 kernel/kernel.s: kernel/kernel.c.s
@@ -431,7 +446,7 @@ kernel/kernel.s: kernel/kernel.c.s
 
 # target to generate assembly for a file
 kernel/kernel.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/kernel/kernel.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/kernel/kernel.c.s
 .PHONY : kernel/kernel.c.s
 
 # Help Target
@@ -443,6 +458,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... myos.kernel"
+	@echo "... kernel"
 	@echo "... crtn"
 	@echo "... crti"
 	@echo "... arch/i386/boot/boot.o"
