@@ -111,6 +111,36 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+kernel/CMakeFiles/crti.dir/rule:
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 kernel/CMakeFiles/crti.dir/rule
+.PHONY : kernel/CMakeFiles/crti.dir/rule
+
+# Convenience name for target.
+crti: kernel/CMakeFiles/crti.dir/rule
+
+.PHONY : crti
+
+# fast build rule for target.
+crti/fast:
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/crti.dir/build.make kernel/CMakeFiles/crti.dir/build
+.PHONY : crti/fast
+
+# Convenience name for target.
+kernel/CMakeFiles/crtn.dir/rule:
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 kernel/CMakeFiles/crtn.dir/rule
+.PHONY : kernel/CMakeFiles/crtn.dir/rule
+
+# Convenience name for target.
+crtn: kernel/CMakeFiles/crtn.dir/rule
+
+.PHONY : crtn
+
+# fast build rule for target.
+crtn/fast:
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/crtn.dir/build.make kernel/CMakeFiles/crtn.dir/build
+.PHONY : crtn/fast
+
+# Convenience name for target.
 kernel/CMakeFiles/myos.kernel.dir/rule:
 	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 kernel/CMakeFiles/myos.kernel.dir/rule
 .PHONY : kernel/CMakeFiles/myos.kernel.dir/rule
@@ -140,7 +170,7 @@ arch/i386/boot/crti.o: arch/i386/boot/crti.s.o
 
 # target to build an object file
 arch/i386/boot/crti.s.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/boot/crti.s.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/crti.dir/build.make kernel/CMakeFiles/crti.dir/arch/i386/boot/crti.s.o
 .PHONY : arch/i386/boot/crti.s.o
 
 arch/i386/boot/crtn.o: arch/i386/boot/crtn.s.o
@@ -149,7 +179,7 @@ arch/i386/boot/crtn.o: arch/i386/boot/crtn.s.o
 
 # target to build an object file
 arch/i386/boot/crtn.s.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/boot/crtn.s.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/crtn.dir/build.make kernel/CMakeFiles/crtn.dir/arch/i386/boot/crtn.s.o
 .PHONY : arch/i386/boot/crtn.s.o
 
 arch/i386/data_tables/boot_gdt.o: arch/i386/data_tables/boot_gdt.s.o
@@ -377,6 +407,33 @@ arch/i386/isr/isr_handler.c.s:
 	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/isr/isr_handler.c.s
 .PHONY : arch/i386/isr/isr_handler.c.s
 
+kernel/kernel.o: kernel/kernel.c.o
+
+.PHONY : kernel/kernel.o
+
+# target to build an object file
+kernel/kernel.c.o:
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/kernel/kernel.c.o
+.PHONY : kernel/kernel.c.o
+
+kernel/kernel.i: kernel/kernel.c.i
+
+.PHONY : kernel/kernel.i
+
+# target to preprocess a source file
+kernel/kernel.c.i:
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/kernel/kernel.c.i
+.PHONY : kernel/kernel.c.i
+
+kernel/kernel.s: kernel/kernel.c.s
+
+.PHONY : kernel/kernel.s
+
+# target to generate assembly for a file
+kernel/kernel.c.s:
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/kernel/kernel.c.s
+.PHONY : kernel/kernel.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -386,6 +443,8 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... myos.kernel"
+	@echo "... crtn"
+	@echo "... crti"
 	@echo "... arch/i386/boot/boot.o"
 	@echo "... arch/i386/boot/crti.o"
 	@echo "... arch/i386/boot/crtn.o"
@@ -414,6 +473,9 @@ help:
 	@echo "... arch/i386/isr/isr_handler.o"
 	@echo "... arch/i386/isr/isr_handler.i"
 	@echo "... arch/i386/isr/isr_handler.s"
+	@echo "... kernel/kernel.o"
+	@echo "... kernel/kernel.i"
+	@echo "... kernel/kernel.s"
 .PHONY : help
 
 

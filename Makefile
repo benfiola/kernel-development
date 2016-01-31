@@ -163,6 +163,32 @@ k/fast:
 .PHONY : k/fast
 
 #=============================================================================
+# Target rules for targets named crti
+
+# Build rule for target.
+crti: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 crti
+.PHONY : crti
+
+# fast build rule for target.
+crti/fast:
+	$(MAKE) -f kernel/CMakeFiles/crti.dir/build.make kernel/CMakeFiles/crti.dir/build
+.PHONY : crti/fast
+
+#=============================================================================
+# Target rules for targets named crtn
+
+# Build rule for target.
+crtn: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 crtn
+.PHONY : crtn
+
+# fast build rule for target.
+crtn/fast:
+	$(MAKE) -f kernel/CMakeFiles/crtn.dir/build.make kernel/CMakeFiles/crtn.dir/build
+.PHONY : crtn/fast
+
+#=============================================================================
 # Target rules for targets named myos.kernel
 
 # Build rule for target.
@@ -188,6 +214,8 @@ help:
 	@echo "... k"
 	@echo "... c"
 	@echo "... myos.kernel"
+	@echo "... crtn"
+	@echo "... crti"
 .PHONY : help
 
 
