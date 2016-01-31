@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/benfiola/Documents/os_workspace
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/local/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/local/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,6 +111,45 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named clean-all
+
+# Build rule for target.
+clean-all: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 clean-all
+.PHONY : clean-all
+
+# fast build rule for target.
+clean-all/fast:
+	$(MAKE) -f CMakeFiles/clean-all.dir/build.make CMakeFiles/clean-all.dir/build
+.PHONY : clean-all/fast
+
+#=============================================================================
+# Target rules for targets named iso
+
+# Build rule for target.
+iso: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 iso
+.PHONY : iso
+
+# fast build rule for target.
+iso/fast:
+	$(MAKE) -f CMakeFiles/iso.dir/build.make CMakeFiles/iso.dir/build
+.PHONY : iso/fast
+
+#=============================================================================
+# Target rules for targets named qemu
+
+# Build rule for target.
+qemu: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 qemu
+.PHONY : qemu
+
+# fast build rule for target.
+qemu/fast:
+	$(MAKE) -f CMakeFiles/qemu.dir/build.make CMakeFiles/qemu.dir/build
+.PHONY : qemu/fast
+
+#=============================================================================
 # Target rules for targets named kernel-includes
 
 # Build rule for target.
@@ -137,30 +176,82 @@ libc-includes/fast:
 .PHONY : libc-includes/fast
 
 #=============================================================================
-# Target rules for targets named c
+# Target rules for targets named clibs
 
 # Build rule for target.
-c : cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 c
-.PHONY : c
+clibs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 clibs
+.PHONY : clibs
 
 # fast build rule for target.
-c/fast:
-	$(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/build
-.PHONY : c/fast
+clibs/fast:
+	$(MAKE) -f libc/CMakeFiles/clibs.dir/build.make libc/CMakeFiles/clibs.dir/build
+.PHONY : clibs/fast
 
 #=============================================================================
-# Target rules for targets named k
+# Target rules for targets named clibs-deploy
 
 # Build rule for target.
-k : cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 k
-.PHONY : k
+clibs-deploy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 clibs-deploy
+.PHONY : clibs-deploy
 
 # fast build rule for target.
-k/fast:
-	$(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/build
-.PHONY : k/fast
+clibs-deploy/fast:
+	$(MAKE) -f libc/CMakeFiles/clibs-deploy.dir/build.make libc/CMakeFiles/clibs-deploy.dir/build
+.PHONY : clibs-deploy/fast
+
+#=============================================================================
+# Target rules for targets named libc
+
+# Build rule for target.
+libc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 libc
+.PHONY : libc
+
+# fast build rule for target.
+libc/fast:
+	$(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/build
+.PHONY : libc/fast
+
+#=============================================================================
+# Target rules for targets named libc-deploy
+
+# Build rule for target.
+libc-deploy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 libc-deploy
+.PHONY : libc-deploy
+
+# fast build rule for target.
+libc-deploy/fast:
+	$(MAKE) -f libc/CMakeFiles/libc-deploy.dir/build.make libc/CMakeFiles/libc-deploy.dir/build
+.PHONY : libc-deploy/fast
+
+#=============================================================================
+# Target rules for targets named libk
+
+# Build rule for target.
+libk: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 libk
+.PHONY : libk
+
+# fast build rule for target.
+libk/fast:
+	$(MAKE) -f libc/CMakeFiles/libk.dir/build.make libc/CMakeFiles/libk.dir/build
+.PHONY : libk/fast
+
+#=============================================================================
+# Target rules for targets named libk-deploy
+
+# Build rule for target.
+libk-deploy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 libk-deploy
+.PHONY : libk-deploy
+
+# fast build rule for target.
+libk-deploy/fast:
+	$(MAKE) -f libc/CMakeFiles/libk-deploy.dir/build.make libc/CMakeFiles/libk-deploy.dir/build
+.PHONY : libk-deploy/fast
 
 #=============================================================================
 # Target rules for targets named crti
@@ -207,12 +298,19 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... qemu"
+	@echo "... iso"
+	@echo "... edit_cache"
+	@echo "... clean-all"
 	@echo "... kernel-includes"
 	@echo "... libc-includes"
-	@echo "... k"
-	@echo "... c"
+	@echo "... clibs-deploy"
+	@echo "... libk-deploy"
+	@echo "... libc-deploy"
+	@echo "... libk"
+	@echo "... clibs"
+	@echo "... libc"
 	@echo "... myos.kernel"
 	@echo "... crtn"
 	@echo "... crti"

@@ -5,3 +5,4 @@ sysroot
 *.DS_Store
 CMakeFiles
 cmake_install.cmake
+*.a

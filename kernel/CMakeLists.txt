@@ -36,16 +36,7 @@ set(CRTN_O ${CMAKE_CURRENT_SOURCE_DIR}/CMakeFiles/crtn.dir/${CRTN_REL_PATH}.o)
 # pretty easy, still kludge-y though.  this works reliably enough for now, but i'm annoyed that this is the best i can do.
 set(CMAKE_C_LINK_EXECUTABLE "<CMAKE_C_COMPILER> <CMAKE_C_LINK_FLAGS> <LINK_FLAGS> <FLAGS> ${CRTI_O} ${CRTBEGIN_O} <OBJECTS> ${CRTEND_O} ${CRTN_O} -o <TARGET> <LINK_LIBRARIES>")
 add_executable(myos.kernel ${KERNEL_SRC})
-add_dependencies(myos.kernel crti crtn)
+add_dependencies(myos.kernel clibs-deploy crti crtn)
 target_compile_definitions(myos.kernel PRIVATE ${KERNEL_CPP_FLAGS})
-target_link_libraries(myos.kernel k)
+target_link_libraries(myos.kernel libk gcc)
 set_target_properties(myos.kernel PROPERTIES LINK_FLAGS ${KERNEL_LINKER_FLAGS})
-
-# now let's copy it to the sysroot
-add_custom_command(
-	TARGET myos.kernel
-	POST_BUILD
-	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:myos.kernel> "${CMAKE_SYSROOT}/boot/$<TARGET_FILE_NAME:myos.kernel>"
-	COMMENT "Moving over the built kernel"
-	DEPENDS myos.kernel
-)

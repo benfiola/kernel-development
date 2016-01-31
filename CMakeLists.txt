@@ -3,7 +3,7 @@ project(myos C ASM-ATT)
 
 # this won't work
 SET(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
-
+SET(CMAKE_STATIC_LIBRARY_PREFIX "")
 # enable assembly
 enable_language(ASM-ATT)
 
@@ -24,3 +24,35 @@ endforeach(HEADER_FILE)
 
 add_subdirectory(libc)
 add_subdirectory(kernel)
+
+add_custom_target(
+	clean-all
+	COMMAND make clean
+	COMMAND rm -rf ./sysroot
+	COMMAND rm -rf ./iso
+	COMMAND rm -rf ./cdrom
+	VERBATIM
+)
+
+set(GRUB_FLAGS "")
+if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+	set(GRUB_FLAGS "-d /usr/lib/grub/i386-pc/")
+endif(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
+message(status ${GRUB_FLAGS})
+add_custom_target(
+	iso
+	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:myos.kernel> "${CMAKE_SYSROOT}/iso/boot/$<TARGET_FILE_NAME:myos.kernel>"
+	COMMAND ${CMAKE_COMMAND} -E copy grub/grub.cfg "${CMAKE_SYSROOT}/iso/boot/grub/grub.cfg"
+	COMMAND mkdir -p ${CMAKE_SYSROOT}/cdrom
+	COMMAND grub-mkrescue -d /usr/lib/grub/i386-pc/ -o ${CMAKE_SYSROOT}/cdrom/myos.iso ${CMAKE_SYSROOT}/iso
+	DEPENDS myos.kernel
+	VERBATIM
+)
+
+add_custom_target(
+	qemu
+	COMMAND qemu-system-i386 -cdrom ${CMAKE_SYSROOT}/cdrom/myos.iso
+	DEPENDS iso
+	VERBATIM
+)
+
