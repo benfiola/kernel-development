@@ -80,14 +80,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/benfiola/Documents/os_workspace/CMakeFiles /home/benfiola/Documents/os_workspace/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /home/benfiola/Documents/os_workspace && $(CMAKE_COMMAND) -E cmake_progress_start /home/benfiola/Documents/os_workspace/CMakeFiles /home/benfiola/Documents/os_workspace/kernel/include/CMakeFiles/progress.marks
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 kernel/include/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/benfiola/Documents/os_workspace/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 kernel/include/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,83 +97,33 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 kernel/include/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 kernel/include/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/benfiola/Documents/os_workspace && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named kernel-includes
+# Convenience name for target.
+kernel/include/CMakeFiles/kernel-includes.dir/rule:
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 kernel/include/CMakeFiles/kernel-includes.dir/rule
+.PHONY : kernel/include/CMakeFiles/kernel-includes.dir/rule
 
-# Build rule for target.
-kernel-includes: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 kernel-includes
+# Convenience name for target.
+kernel-includes: kernel/include/CMakeFiles/kernel-includes.dir/rule
+
 .PHONY : kernel-includes
 
 # fast build rule for target.
 kernel-includes/fast:
-	$(MAKE) -f kernel/include/CMakeFiles/kernel-includes.dir/build.make kernel/include/CMakeFiles/kernel-includes.dir/build
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/include/CMakeFiles/kernel-includes.dir/build.make kernel/include/CMakeFiles/kernel-includes.dir/build
 .PHONY : kernel-includes/fast
-
-#=============================================================================
-# Target rules for targets named libc-includes
-
-# Build rule for target.
-libc-includes: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 libc-includes
-.PHONY : libc-includes
-
-# fast build rule for target.
-libc-includes/fast:
-	$(MAKE) -f libc/include/CMakeFiles/libc-includes.dir/build.make libc/include/CMakeFiles/libc-includes.dir/build
-.PHONY : libc-includes/fast
-
-#=============================================================================
-# Target rules for targets named c
-
-# Build rule for target.
-c : cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 c
-.PHONY : c
-
-# fast build rule for target.
-c/fast:
-	$(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/build
-.PHONY : c/fast
-
-#=============================================================================
-# Target rules for targets named k
-
-# Build rule for target.
-k : cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 k
-.PHONY : k
-
-# fast build rule for target.
-k/fast:
-	$(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/build
-.PHONY : k/fast
-
-#=============================================================================
-# Target rules for targets named myos.kernel
-
-# Build rule for target.
-myos.kernel: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 myos.kernel
-.PHONY : myos.kernel
-
-# fast build rule for target.
-myos.kernel/fast:
-	$(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/build
-.PHONY : myos.kernel/fast
 
 # Help Target
 help:
@@ -184,10 +134,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... kernel-includes"
-	@echo "... libc-includes"
-	@echo "... k"
-	@echo "... c"
-	@echo "... myos.kernel"
 .PHONY : help
 
 
@@ -199,6 +145,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/benfiola/Documents/os_workspace && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

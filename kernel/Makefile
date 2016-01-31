@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-kernel/CMakeFiles/kernel.dir/rule:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 kernel/CMakeFiles/kernel.dir/rule
-.PHONY : kernel/CMakeFiles/kernel.dir/rule
+kernel/CMakeFiles/myos.kernel.dir/rule:
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 kernel/CMakeFiles/myos.kernel.dir/rule
+.PHONY : kernel/CMakeFiles/myos.kernel.dir/rule
 
 # Convenience name for target.
-kernel: kernel/CMakeFiles/kernel.dir/rule
+myos.kernel: kernel/CMakeFiles/myos.kernel.dir/rule
 
-.PHONY : kernel
+.PHONY : myos.kernel
 
 # fast build rule for target.
-kernel/fast:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/build
-.PHONY : kernel/fast
+myos.kernel/fast:
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/build
+.PHONY : myos.kernel/fast
 
 arch/i386/boot/boot.o: arch/i386/boot/boot.s.o
 
@@ -131,7 +131,7 @@ arch/i386/boot/boot.o: arch/i386/boot/boot.s.o
 
 # target to build an object file
 arch/i386/boot/boot.s.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/boot/boot.s.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/boot/boot.s.o
 .PHONY : arch/i386/boot/boot.s.o
 
 arch/i386/boot/crti.o: arch/i386/boot/crti.s.o
@@ -140,7 +140,7 @@ arch/i386/boot/crti.o: arch/i386/boot/crti.s.o
 
 # target to build an object file
 arch/i386/boot/crti.s.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/boot/crti.s.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/boot/crti.s.o
 .PHONY : arch/i386/boot/crti.s.o
 
 arch/i386/boot/crtn.o: arch/i386/boot/crtn.s.o
@@ -149,7 +149,7 @@ arch/i386/boot/crtn.o: arch/i386/boot/crtn.s.o
 
 # target to build an object file
 arch/i386/boot/crtn.s.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/boot/crtn.s.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/boot/crtn.s.o
 .PHONY : arch/i386/boot/crtn.s.o
 
 arch/i386/data_tables/boot_gdt.o: arch/i386/data_tables/boot_gdt.s.o
@@ -158,7 +158,7 @@ arch/i386/data_tables/boot_gdt.o: arch/i386/data_tables/boot_gdt.s.o
 
 # target to build an object file
 arch/i386/data_tables/boot_gdt.s.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/data_tables/boot_gdt.s.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/data_tables/boot_gdt.s.o
 .PHONY : arch/i386/data_tables/boot_gdt.s.o
 
 arch/i386/data_tables/boot_idt.o: arch/i386/data_tables/boot_idt.s.o
@@ -167,7 +167,7 @@ arch/i386/data_tables/boot_idt.o: arch/i386/data_tables/boot_idt.s.o
 
 # target to build an object file
 arch/i386/data_tables/boot_idt.s.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/data_tables/boot_idt.s.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/data_tables/boot_idt.s.o
 .PHONY : arch/i386/data_tables/boot_idt.s.o
 
 arch/i386/data_tables/gdt.o: arch/i386/data_tables/gdt.c.o
@@ -176,7 +176,7 @@ arch/i386/data_tables/gdt.o: arch/i386/data_tables/gdt.c.o
 
 # target to build an object file
 arch/i386/data_tables/gdt.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/data_tables/gdt.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/data_tables/gdt.c.o
 .PHONY : arch/i386/data_tables/gdt.c.o
 
 arch/i386/data_tables/gdt.i: arch/i386/data_tables/gdt.c.i
@@ -185,7 +185,7 @@ arch/i386/data_tables/gdt.i: arch/i386/data_tables/gdt.c.i
 
 # target to preprocess a source file
 arch/i386/data_tables/gdt.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/data_tables/gdt.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/data_tables/gdt.c.i
 .PHONY : arch/i386/data_tables/gdt.c.i
 
 arch/i386/data_tables/gdt.s: arch/i386/data_tables/gdt.c.s
@@ -194,7 +194,7 @@ arch/i386/data_tables/gdt.s: arch/i386/data_tables/gdt.c.s
 
 # target to generate assembly for a file
 arch/i386/data_tables/gdt.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/data_tables/gdt.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/data_tables/gdt.c.s
 .PHONY : arch/i386/data_tables/gdt.c.s
 
 arch/i386/data_tables/idt.o: arch/i386/data_tables/idt.c.o
@@ -203,7 +203,7 @@ arch/i386/data_tables/idt.o: arch/i386/data_tables/idt.c.o
 
 # target to build an object file
 arch/i386/data_tables/idt.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/data_tables/idt.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/data_tables/idt.c.o
 .PHONY : arch/i386/data_tables/idt.c.o
 
 arch/i386/data_tables/idt.i: arch/i386/data_tables/idt.c.i
@@ -212,7 +212,7 @@ arch/i386/data_tables/idt.i: arch/i386/data_tables/idt.c.i
 
 # target to preprocess a source file
 arch/i386/data_tables/idt.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/data_tables/idt.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/data_tables/idt.c.i
 .PHONY : arch/i386/data_tables/idt.c.i
 
 arch/i386/data_tables/idt.s: arch/i386/data_tables/idt.c.s
@@ -221,7 +221,7 @@ arch/i386/data_tables/idt.s: arch/i386/data_tables/idt.c.s
 
 # target to generate assembly for a file
 arch/i386/data_tables/idt.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/data_tables/idt.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/data_tables/idt.c.s
 .PHONY : arch/i386/data_tables/idt.c.s
 
 arch/i386/drivers/keyboard.o: arch/i386/drivers/keyboard.c.o
@@ -230,7 +230,7 @@ arch/i386/drivers/keyboard.o: arch/i386/drivers/keyboard.c.o
 
 # target to build an object file
 arch/i386/drivers/keyboard.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/drivers/keyboard.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/drivers/keyboard.c.o
 .PHONY : arch/i386/drivers/keyboard.c.o
 
 arch/i386/drivers/keyboard.i: arch/i386/drivers/keyboard.c.i
@@ -239,7 +239,7 @@ arch/i386/drivers/keyboard.i: arch/i386/drivers/keyboard.c.i
 
 # target to preprocess a source file
 arch/i386/drivers/keyboard.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/drivers/keyboard.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/drivers/keyboard.c.i
 .PHONY : arch/i386/drivers/keyboard.c.i
 
 arch/i386/drivers/keyboard.s: arch/i386/drivers/keyboard.c.s
@@ -248,7 +248,7 @@ arch/i386/drivers/keyboard.s: arch/i386/drivers/keyboard.c.s
 
 # target to generate assembly for a file
 arch/i386/drivers/keyboard.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/drivers/keyboard.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/drivers/keyboard.c.s
 .PHONY : arch/i386/drivers/keyboard.c.s
 
 arch/i386/drivers/pic.o: arch/i386/drivers/pic.c.o
@@ -257,7 +257,7 @@ arch/i386/drivers/pic.o: arch/i386/drivers/pic.c.o
 
 # target to build an object file
 arch/i386/drivers/pic.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/drivers/pic.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/drivers/pic.c.o
 .PHONY : arch/i386/drivers/pic.c.o
 
 arch/i386/drivers/pic.i: arch/i386/drivers/pic.c.i
@@ -266,7 +266,7 @@ arch/i386/drivers/pic.i: arch/i386/drivers/pic.c.i
 
 # target to preprocess a source file
 arch/i386/drivers/pic.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/drivers/pic.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/drivers/pic.c.i
 .PHONY : arch/i386/drivers/pic.c.i
 
 arch/i386/drivers/pic.s: arch/i386/drivers/pic.c.s
@@ -275,7 +275,7 @@ arch/i386/drivers/pic.s: arch/i386/drivers/pic.c.s
 
 # target to generate assembly for a file
 arch/i386/drivers/pic.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/drivers/pic.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/drivers/pic.c.s
 .PHONY : arch/i386/drivers/pic.c.s
 
 arch/i386/drivers/tty.o: arch/i386/drivers/tty.c.o
@@ -284,7 +284,7 @@ arch/i386/drivers/tty.o: arch/i386/drivers/tty.c.o
 
 # target to build an object file
 arch/i386/drivers/tty.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/drivers/tty.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/drivers/tty.c.o
 .PHONY : arch/i386/drivers/tty.c.o
 
 arch/i386/drivers/tty.i: arch/i386/drivers/tty.c.i
@@ -293,7 +293,7 @@ arch/i386/drivers/tty.i: arch/i386/drivers/tty.c.i
 
 # target to preprocess a source file
 arch/i386/drivers/tty.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/drivers/tty.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/drivers/tty.c.i
 .PHONY : arch/i386/drivers/tty.c.i
 
 arch/i386/drivers/tty.s: arch/i386/drivers/tty.c.s
@@ -302,7 +302,7 @@ arch/i386/drivers/tty.s: arch/i386/drivers/tty.c.s
 
 # target to generate assembly for a file
 arch/i386/drivers/tty.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/drivers/tty.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/drivers/tty.c.s
 .PHONY : arch/i386/drivers/tty.c.s
 
 arch/i386/irq/boot_irq_handler.o: arch/i386/irq/boot_irq_handler.s.o
@@ -311,7 +311,7 @@ arch/i386/irq/boot_irq_handler.o: arch/i386/irq/boot_irq_handler.s.o
 
 # target to build an object file
 arch/i386/irq/boot_irq_handler.s.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/irq/boot_irq_handler.s.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/irq/boot_irq_handler.s.o
 .PHONY : arch/i386/irq/boot_irq_handler.s.o
 
 arch/i386/irq/irq_handler.o: arch/i386/irq/irq_handler.c.o
@@ -320,7 +320,7 @@ arch/i386/irq/irq_handler.o: arch/i386/irq/irq_handler.c.o
 
 # target to build an object file
 arch/i386/irq/irq_handler.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/irq/irq_handler.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/irq/irq_handler.c.o
 .PHONY : arch/i386/irq/irq_handler.c.o
 
 arch/i386/irq/irq_handler.i: arch/i386/irq/irq_handler.c.i
@@ -329,7 +329,7 @@ arch/i386/irq/irq_handler.i: arch/i386/irq/irq_handler.c.i
 
 # target to preprocess a source file
 arch/i386/irq/irq_handler.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/irq/irq_handler.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/irq/irq_handler.c.i
 .PHONY : arch/i386/irq/irq_handler.c.i
 
 arch/i386/irq/irq_handler.s: arch/i386/irq/irq_handler.c.s
@@ -338,7 +338,7 @@ arch/i386/irq/irq_handler.s: arch/i386/irq/irq_handler.c.s
 
 # target to generate assembly for a file
 arch/i386/irq/irq_handler.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/irq/irq_handler.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/irq/irq_handler.c.s
 .PHONY : arch/i386/irq/irq_handler.c.s
 
 arch/i386/isr/boot_isr_handler.o: arch/i386/isr/boot_isr_handler.s.o
@@ -347,7 +347,7 @@ arch/i386/isr/boot_isr_handler.o: arch/i386/isr/boot_isr_handler.s.o
 
 # target to build an object file
 arch/i386/isr/boot_isr_handler.s.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/isr/boot_isr_handler.s.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/isr/boot_isr_handler.s.o
 .PHONY : arch/i386/isr/boot_isr_handler.s.o
 
 arch/i386/isr/isr_handler.o: arch/i386/isr/isr_handler.c.o
@@ -356,7 +356,7 @@ arch/i386/isr/isr_handler.o: arch/i386/isr/isr_handler.c.o
 
 # target to build an object file
 arch/i386/isr/isr_handler.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/isr/isr_handler.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/isr/isr_handler.c.o
 .PHONY : arch/i386/isr/isr_handler.c.o
 
 arch/i386/isr/isr_handler.i: arch/i386/isr/isr_handler.c.i
@@ -365,7 +365,7 @@ arch/i386/isr/isr_handler.i: arch/i386/isr/isr_handler.c.i
 
 # target to preprocess a source file
 arch/i386/isr/isr_handler.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/isr/isr_handler.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/isr/isr_handler.c.i
 .PHONY : arch/i386/isr/isr_handler.c.i
 
 arch/i386/isr/isr_handler.s: arch/i386/isr/isr_handler.c.s
@@ -374,35 +374,8 @@ arch/i386/isr/isr_handler.s: arch/i386/isr/isr_handler.c.s
 
 # target to generate assembly for a file
 arch/i386/isr/isr_handler.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/arch/i386/isr/isr_handler.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/myos.kernel.dir/build.make kernel/CMakeFiles/myos.kernel.dir/arch/i386/isr/isr_handler.c.s
 .PHONY : arch/i386/isr/isr_handler.c.s
-
-kernel/kernel.o: kernel/kernel.c.o
-
-.PHONY : kernel/kernel.o
-
-# target to build an object file
-kernel/kernel.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/kernel/kernel.c.o
-.PHONY : kernel/kernel.c.o
-
-kernel/kernel.i: kernel/kernel.c.i
-
-.PHONY : kernel/kernel.i
-
-# target to preprocess a source file
-kernel/kernel.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/kernel/kernel.c.i
-.PHONY : kernel/kernel.c.i
-
-kernel/kernel.s: kernel/kernel.c.s
-
-.PHONY : kernel/kernel.s
-
-# target to generate assembly for a file
-kernel/kernel.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f kernel/CMakeFiles/kernel.dir/build.make kernel/CMakeFiles/kernel.dir/kernel/kernel.c.s
-.PHONY : kernel/kernel.c.s
 
 # Help Target
 help:
@@ -412,7 +385,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... kernel"
+	@echo "... myos.kernel"
 	@echo "... arch/i386/boot/boot.o"
 	@echo "... arch/i386/boot/crti.o"
 	@echo "... arch/i386/boot/crtn.o"
@@ -441,9 +414,6 @@ help:
 	@echo "... arch/i386/isr/isr_handler.o"
 	@echo "... arch/i386/isr/isr_handler.i"
 	@echo "... arch/i386/isr/isr_handler.s"
-	@echo "... kernel/kernel.o"
-	@echo "... kernel/kernel.i"
-	@echo "... kernel/kernel.s"
 .PHONY : help
 
 

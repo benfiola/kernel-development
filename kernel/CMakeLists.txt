@@ -1,33 +1,22 @@
+project(kernel)
 
-MESSAGE(STATUS "Building kernel")
+message(STATUS "Building kernel.")
 
-# here we set flags specific for the kernel
-set(KERNEL_C_FLAGS "-ffreestanding -fbuiltin -Wall -Wextra")
+set(KERNEL_C_FLAGS "-isystem=/usr/include -O2 -g -ffreestanding -fbuiltin -Wall -Wextra")
 set(KERNEL_CPP_FLAGS "-D__is_myos_kernel -Iinclude")
-set(KERNEL_LD_FLAGS "")
-set(KERNEL_LIBS "-nostdlib -lk -gcc")
+set(KERNEL_LINKER_FLAGS "-T arch/i386/linker.ld -nostdlib -lk -lgcc")
 
-LOAD_PROFILE("i386")
-MESSAGE(STATUS "Finding boot/crti.s")
-FILE(GLOB_RECURSE CRTI_SRC "**/crti.s")
-MESSAGE(STATUS "${CRTI_SRC}")
+set(CMAKE_C_FLAGS ${KERNEL_C_FLAGS})
 
-MESSAGE(STATUS "Finding boot/crtn.s")
-FILE(GLOB_RECURSE CRTN_SRC "**/crtn.s")
-MESSAGE(STATUS "${CRTN_SRC}")
+file(GLOB_RECURSE KERNEL_SRC "*.c" "*.s")
+# these need to go in front and back of the list, respectively
+file(GLOB_RECURSE CRTI_SRC "*crti.s")
+file(GLOB_RECURSE CRTN_SRC "*crtn.s")
+set(CRTBEGIN_O "/home/benfiola/opt/cross/lib/gcc/i686-elf/5.2.0/crtbegin.o")
+set(CRTEND_O "/home/benfiola/opt/cross/lib/gcc/i686-elf/5.2.0/crtend.o")
+list(REMOVE_ITEM KERNEL_SRC ${CRTI_SRC})
+list(REMOVE_ITEM KERNEL_SRC ${CRTN_SRC})
 
-MESSAGE(STATUS "Removing crti.s and crtn.s from platform sources")
-list (REMOVE_ITEM PLATFORM_SRCS ${CRTI_SRC})
-list (REMOVE_ITEM PLATFORM_SRCS ${CRTN_SRC})
-
-MESSAGE(STATUS "Finding all generic sources")
-FILE(GLOB_RECURSE GENERIC_SRCS "**/*.c" "**/*.s")
-REMOVE_FILES_WITH_PATTERN("${GENERIC_SRCS}" "arch" "GENERIC_SRCS")
-MESSAGE(STATUS ${GENERIC_SRCS})
-
-
-ADD_EXECUTABLE(kernel ${CRTI_SRC} ${PLATFORM_SRCS} ${GENERIC_SRCS} ${CRTN_SRC})
-
-#SET(CMAKE_ASM-ATT_COMPILE_OBJECT "<CMAKE_ASM-ATT_COMPILER> -o <OBJECT> <SOURCE>")
-#SET(CMAKE_C_FLAGS "${GENERAL_C_FLAGS} ${KERNEL_C_FLAGS} ${PLATFORM_C_FLAGS}")
-#SET_TARGET_PROPERTIES(kernel PROPERTIES LINK_FLAGS "-T ${PLATFORM_LAYOUT} -N ${GENERAL_LINKER_FLAGS} ${KERNEL_LINKER_FLAGS} ${PLATFORM_LINKER_FLAGS}")
+add_executable(myos.kernel ${CRTI_SRC} ${CRTBEGIN_O} ${KERNEL_SRC} ${CRTEND_O} ${CRTN_SRC})
+target_compile_definitions(myos.kernel PRIVATE ${KERNEL_CPP_FLAGS})
+SET_TARGET_PROPERTIES(myos.kernel PROPERTIES LINK_FLAGS ${KERNEL_LINKER_FLAGS})

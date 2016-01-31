@@ -111,19 +111,34 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-libc/CMakeFiles/libc.dir/rule:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 libc/CMakeFiles/libc.dir/rule
-.PHONY : libc/CMakeFiles/libc.dir/rule
+libc/CMakeFiles/c.dir/rule:
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 libc/CMakeFiles/c.dir/rule
+.PHONY : libc/CMakeFiles/c.dir/rule
 
 # Convenience name for target.
-libc: libc/CMakeFiles/libc.dir/rule
+c : libc/CMakeFiles/c.dir/rule
 
-.PHONY : libc
+.PHONY : c
 
 # fast build rule for target.
-libc/fast:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/build
-.PHONY : libc/fast
+c/fast:
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/build
+.PHONY : c/fast
+
+# Convenience name for target.
+libc/CMakeFiles/k.dir/rule:
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f CMakeFiles/Makefile2 libc/CMakeFiles/k.dir/rule
+.PHONY : libc/CMakeFiles/k.dir/rule
+
+# Convenience name for target.
+k : libc/CMakeFiles/k.dir/rule
+
+.PHONY : k
+
+# fast build rule for target.
+k/fast:
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/build
+.PHONY : k/fast
 
 stdio/printf.o: stdio/printf.c.o
 
@@ -131,7 +146,8 @@ stdio/printf.o: stdio/printf.c.o
 
 # target to build an object file
 stdio/printf.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/stdio/printf.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/stdio/printf.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/stdio/printf.c.o
 .PHONY : stdio/printf.c.o
 
 stdio/printf.i: stdio/printf.c.i
@@ -140,7 +156,8 @@ stdio/printf.i: stdio/printf.c.i
 
 # target to preprocess a source file
 stdio/printf.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/stdio/printf.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/stdio/printf.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/stdio/printf.c.i
 .PHONY : stdio/printf.c.i
 
 stdio/printf.s: stdio/printf.c.s
@@ -149,7 +166,8 @@ stdio/printf.s: stdio/printf.c.s
 
 # target to generate assembly for a file
 stdio/printf.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/stdio/printf.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/stdio/printf.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/stdio/printf.c.s
 .PHONY : stdio/printf.c.s
 
 stdio/putchar.o: stdio/putchar.c.o
@@ -158,7 +176,8 @@ stdio/putchar.o: stdio/putchar.c.o
 
 # target to build an object file
 stdio/putchar.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/stdio/putchar.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/stdio/putchar.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/stdio/putchar.c.o
 .PHONY : stdio/putchar.c.o
 
 stdio/putchar.i: stdio/putchar.c.i
@@ -167,7 +186,8 @@ stdio/putchar.i: stdio/putchar.c.i
 
 # target to preprocess a source file
 stdio/putchar.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/stdio/putchar.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/stdio/putchar.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/stdio/putchar.c.i
 .PHONY : stdio/putchar.c.i
 
 stdio/putchar.s: stdio/putchar.c.s
@@ -176,7 +196,8 @@ stdio/putchar.s: stdio/putchar.c.s
 
 # target to generate assembly for a file
 stdio/putchar.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/stdio/putchar.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/stdio/putchar.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/stdio/putchar.c.s
 .PHONY : stdio/putchar.c.s
 
 stdio/puts.o: stdio/puts.c.o
@@ -185,7 +206,8 @@ stdio/puts.o: stdio/puts.c.o
 
 # target to build an object file
 stdio/puts.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/stdio/puts.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/stdio/puts.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/stdio/puts.c.o
 .PHONY : stdio/puts.c.o
 
 stdio/puts.i: stdio/puts.c.i
@@ -194,7 +216,8 @@ stdio/puts.i: stdio/puts.c.i
 
 # target to preprocess a source file
 stdio/puts.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/stdio/puts.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/stdio/puts.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/stdio/puts.c.i
 .PHONY : stdio/puts.c.i
 
 stdio/puts.s: stdio/puts.c.s
@@ -203,7 +226,8 @@ stdio/puts.s: stdio/puts.c.s
 
 # target to generate assembly for a file
 stdio/puts.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/stdio/puts.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/stdio/puts.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/stdio/puts.c.s
 .PHONY : stdio/puts.c.s
 
 stdlib/abort.o: stdlib/abort.c.o
@@ -212,7 +236,8 @@ stdlib/abort.o: stdlib/abort.c.o
 
 # target to build an object file
 stdlib/abort.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/stdlib/abort.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/stdlib/abort.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/stdlib/abort.c.o
 .PHONY : stdlib/abort.c.o
 
 stdlib/abort.i: stdlib/abort.c.i
@@ -221,7 +246,8 @@ stdlib/abort.i: stdlib/abort.c.i
 
 # target to preprocess a source file
 stdlib/abort.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/stdlib/abort.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/stdlib/abort.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/stdlib/abort.c.i
 .PHONY : stdlib/abort.c.i
 
 stdlib/abort.s: stdlib/abort.c.s
@@ -230,7 +256,8 @@ stdlib/abort.s: stdlib/abort.c.s
 
 # target to generate assembly for a file
 stdlib/abort.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/stdlib/abort.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/stdlib/abort.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/stdlib/abort.c.s
 .PHONY : stdlib/abort.c.s
 
 string/memcmp.o: string/memcmp.c.o
@@ -239,7 +266,8 @@ string/memcmp.o: string/memcmp.c.o
 
 # target to build an object file
 string/memcmp.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/string/memcmp.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/string/memcmp.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/string/memcmp.c.o
 .PHONY : string/memcmp.c.o
 
 string/memcmp.i: string/memcmp.c.i
@@ -248,7 +276,8 @@ string/memcmp.i: string/memcmp.c.i
 
 # target to preprocess a source file
 string/memcmp.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/string/memcmp.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/string/memcmp.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/string/memcmp.c.i
 .PHONY : string/memcmp.c.i
 
 string/memcmp.s: string/memcmp.c.s
@@ -257,7 +286,8 @@ string/memcmp.s: string/memcmp.c.s
 
 # target to generate assembly for a file
 string/memcmp.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/string/memcmp.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/string/memcmp.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/string/memcmp.c.s
 .PHONY : string/memcmp.c.s
 
 string/memcpy.o: string/memcpy.c.o
@@ -266,7 +296,8 @@ string/memcpy.o: string/memcpy.c.o
 
 # target to build an object file
 string/memcpy.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/string/memcpy.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/string/memcpy.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/string/memcpy.c.o
 .PHONY : string/memcpy.c.o
 
 string/memcpy.i: string/memcpy.c.i
@@ -275,7 +306,8 @@ string/memcpy.i: string/memcpy.c.i
 
 # target to preprocess a source file
 string/memcpy.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/string/memcpy.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/string/memcpy.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/string/memcpy.c.i
 .PHONY : string/memcpy.c.i
 
 string/memcpy.s: string/memcpy.c.s
@@ -284,7 +316,8 @@ string/memcpy.s: string/memcpy.c.s
 
 # target to generate assembly for a file
 string/memcpy.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/string/memcpy.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/string/memcpy.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/string/memcpy.c.s
 .PHONY : string/memcpy.c.s
 
 string/memmove.o: string/memmove.c.o
@@ -293,7 +326,8 @@ string/memmove.o: string/memmove.c.o
 
 # target to build an object file
 string/memmove.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/string/memmove.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/string/memmove.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/string/memmove.c.o
 .PHONY : string/memmove.c.o
 
 string/memmove.i: string/memmove.c.i
@@ -302,7 +336,8 @@ string/memmove.i: string/memmove.c.i
 
 # target to preprocess a source file
 string/memmove.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/string/memmove.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/string/memmove.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/string/memmove.c.i
 .PHONY : string/memmove.c.i
 
 string/memmove.s: string/memmove.c.s
@@ -311,7 +346,8 @@ string/memmove.s: string/memmove.c.s
 
 # target to generate assembly for a file
 string/memmove.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/string/memmove.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/string/memmove.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/string/memmove.c.s
 .PHONY : string/memmove.c.s
 
 string/memset.o: string/memset.c.o
@@ -320,7 +356,8 @@ string/memset.o: string/memset.c.o
 
 # target to build an object file
 string/memset.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/string/memset.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/string/memset.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/string/memset.c.o
 .PHONY : string/memset.c.o
 
 string/memset.i: string/memset.c.i
@@ -329,7 +366,8 @@ string/memset.i: string/memset.c.i
 
 # target to preprocess a source file
 string/memset.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/string/memset.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/string/memset.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/string/memset.c.i
 .PHONY : string/memset.c.i
 
 string/memset.s: string/memset.c.s
@@ -338,7 +376,8 @@ string/memset.s: string/memset.c.s
 
 # target to generate assembly for a file
 string/memset.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/string/memset.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/string/memset.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/string/memset.c.s
 .PHONY : string/memset.c.s
 
 string/strlen.o: string/strlen.c.o
@@ -347,7 +386,8 @@ string/strlen.o: string/strlen.c.o
 
 # target to build an object file
 string/strlen.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/string/strlen.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/string/strlen.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/string/strlen.c.o
 .PHONY : string/strlen.c.o
 
 string/strlen.i: string/strlen.c.i
@@ -356,7 +396,8 @@ string/strlen.i: string/strlen.c.i
 
 # target to preprocess a source file
 string/strlen.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/string/strlen.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/string/strlen.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/string/strlen.c.i
 .PHONY : string/strlen.c.i
 
 string/strlen.s: string/strlen.c.s
@@ -365,7 +406,8 @@ string/strlen.s: string/strlen.c.s
 
 # target to generate assembly for a file
 string/strlen.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/string/strlen.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/string/strlen.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/string/strlen.c.s
 .PHONY : string/strlen.c.s
 
 system/port.o: system/port.c.o
@@ -374,7 +416,8 @@ system/port.o: system/port.c.o
 
 # target to build an object file
 system/port.c.o:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/system/port.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/system/port.c.o
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/system/port.c.o
 .PHONY : system/port.c.o
 
 system/port.i: system/port.c.i
@@ -383,7 +426,8 @@ system/port.i: system/port.c.i
 
 # target to preprocess a source file
 system/port.c.i:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/system/port.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/system/port.c.i
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/system/port.c.i
 .PHONY : system/port.c.i
 
 system/port.s: system/port.c.s
@@ -392,7 +436,8 @@ system/port.s: system/port.c.s
 
 # target to generate assembly for a file
 system/port.c.s:
-	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/libc.dir/build.make libc/CMakeFiles/libc.dir/system/port.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/c.dir/build.make libc/CMakeFiles/c.dir/system/port.c.s
+	cd /home/benfiola/Documents/os_workspace && $(MAKE) -f libc/CMakeFiles/k.dir/build.make libc/CMakeFiles/k.dir/system/port.c.s
 .PHONY : system/port.c.s
 
 # Help Target
@@ -403,7 +448,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... libc"
+	@echo "... k"
+	@echo "... c"
 	@echo "... stdio/printf.o"
 	@echo "... stdio/printf.i"
 	@echo "... stdio/printf.s"
